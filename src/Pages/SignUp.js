@@ -59,7 +59,7 @@ function SignUp() {
             <p>
               Already have an account
               <span>
-                <Link to="./Login">Log in </Link>
+                <Link to="../Login">Log in </Link>
               </span>
             </p>
           </div>

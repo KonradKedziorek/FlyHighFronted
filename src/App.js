@@ -8,9 +8,9 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route exact="exact" path="/" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/reset" element={<ResetPassword />} />
+          <Route exact="exact" path="/SignUp" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/ResetPassword" element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>
     </div>
