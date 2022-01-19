@@ -40,7 +40,7 @@ function Login() {
               </span>
             </p>
             <p>
-              Dont remember passord
+              Dont remember password
               <span>
                 <Link to="../ResetPassword">Reset Password </Link>
               </span>
