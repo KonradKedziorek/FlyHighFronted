@@ -11,17 +11,17 @@ const ResetPassword = () => {
         <Container className="auth-container">
             <Paper className="auth">
                 <div>
-                    <h5>Reset Password</h5>
+                    <h5>Resetowanie hasła</h5>
                 </div>
                 <div>
                     <form>
                         <TextField value={mail}
                         onChange={(e)=>setmail(e.target.value)}
-                        label="Enter mail which you log in"
+                        label="Podaj adres mail, na który założyłeś konto"
                         />
                     </form>
                    
-                    <Button>Reset Password</Button>
+                    <Button>Resetuj hasło</Button>
                 </div>
                 
             </Paper>

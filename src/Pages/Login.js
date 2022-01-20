@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "../css/auth.css";
 
 function Login() {
-  const [mail, setmail] = useState("");
+  const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   return (
     <Layout>
@@ -18,31 +18,31 @@ function Login() {
           <div>
             <form className="auth_form">
               <TextField
-                value={mail}
-                onChange={(e) => setmail(e.target.value)}
-                label="Enter mail"
+                value={username}
+                onChange={(e) => setusername(e.target.value)}
+                label="Podaj nazwę użytkownika"
               />
             </form>
             <form>
               <TextField
                 value={password}
                 onChange={(e) => setpassword(e.target.value)}
-                label="Enter passsword"
+                label="Podaj hasło"
               />
             </form>
-            <Button>Log in</Button>
+            <Button>Zaloguj się</Button>
           </div>
           <div>
             <p>
-              Dont have account yet
+              Nie posiadasz jeszcze konta? 
               <span>
-                <Link to="../SignUp">Sign Up </Link>
+                <Link to="../SignUp">Zarejestruj się </Link>
               </span>
             </p>
             <p>
-              Dont remember password
+              Nie pamiętasz hasła?
               <span>
-                <Link to="../ResetPassword">Reset Password </Link>
+                <Link to="../ResetPassword">Resetowanie hasła </Link>
               </span>
             </p>
           </div>
