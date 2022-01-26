@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import{Container, Paper, TextField, Button} from '@material-ui/core'
 import Layout from './Layout'
-import '../css/auth.css'
+
 
 const ResetPassword = () => {
     const [mail, setmail]=useState('')

@@ -3,11 +3,25 @@ import Layout from "./Layout";
 import { useState } from "react";
 import { Container, Paper, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import "../css/auth.css";
+
 
 function Login() {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+
+  function handleClick(e){
+    e.preventDefault()
+    const login = {username,password}
+    console.log(login)
+    fetch("http://localhost:8080/login", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(login)
+    }).then(() => {
+      console.log("Logged in")
+    })
+  }
+
   return (
     <Layout>
       <Container className="auth-container">
@@ -30,7 +44,7 @@ function Login() {
                 label="Podaj hasło"
               />
             </form>
-            <Button>Zaloguj się</Button>
+            <Button variant="contained" color="secondary" onClick={handleClick}>Zaloguj się</Button>
           </div>
           <div>
             <p>

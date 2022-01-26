@@ -1,21 +1,25 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignUp from "./Pages/SignUp";
-import Login from "./Pages/Login";
-import ResetPassword from "./Pages/ResetPassword";
-import HomePage from "./Pages/HomePage";
+import SignUpPage from "./components/Pages/SignUpPage";
+import LoginPage from "./components/Pages/LoginPage";
+import ResetPasswordPage from "./components/Pages/ResetPasswordPage";
+import HomePage from "./components/Pages/HomePage";
+import EditPersonalDataPage from "./components/Pages/EditPersonalDataPage";
+
+
 function App() {
   return (
-    <div>
+    <nav>
       <BrowserRouter>
         <Routes>
           <Route exact="exact" path="/" element={<HomePage />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/ResetPassword" element={<ResetPassword />} />
+          <Route path="/SignUp" element={<SignUpPage />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/ResetPassword" element={<ResetPasswordPage />} />
+          <Route path="/EditPersonalData" element={<EditPersonalDataPage/>}/>
         </Routes>
       </BrowserRouter>
-    </div>
+      </nav>
   );
 }
 

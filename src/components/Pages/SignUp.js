@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Layout from "./Layout";
 import { Container, Paper, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import "../css/auth.css";
 
-function SignUp() {
+
+
+  function SignUp() {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
@@ -19,6 +20,19 @@ function SignUp() {
   const [street, setstreet] = useState("");
   const [houseNumber, sethouseNumber] = useState("");
   const [zipCode, setzipCode] = useState("");
+
+  function handleClick(e){
+    e.preventDefault()
+    const signUp = {username,password,phoneNumber,mail,pesel,name,middleName,surname,bankAccount,country,city,street,houseNumber,zipCode}
+    console.log(signUp)
+    fetch("http://localhost:8080/user/signUp", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(signUp)
+    }).then(() => {
+      console.log("New user added")
+    })
+  }
   
   return (
     <Layout>
@@ -128,7 +142,7 @@ function SignUp() {
             </form>
             
             
-            <Button>Zarejestruj</Button>
+            <Button variant="contained" color="secondary" onClick={handleClick}>Zarejestruj</Button>
           </div>
           <div className="auth_bottom">
             <p>
