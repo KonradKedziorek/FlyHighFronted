@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import ResetPassword from './ResetPassword'
+import ResetPassword from '../ResetPassword'
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 

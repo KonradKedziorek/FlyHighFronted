@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Layout from "./Layout";
-import { Container, Paper, TextField, Button } from "@material-ui/core";
+import Layout from "./Pages/Layout";
+import {  TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
-  const [mail, setmail] = useState("");
+  const [email, setemail] = useState("");
   const [pesel, setpesel] = useState("");
   const [name, setname] = useState("");
   const [middleName, setmiddleName] = useState("");
@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 
   function handleClick(e){
     e.preventDefault()
-    const signUp = {username,password,phoneNumber,mail,pesel,name,middleName,surname,bankAccount,country,city,street,houseNumber,zipCode}
+    const signUp = {username,password,phoneNumber,email,pesel,name,middleName,surname,bankAccount,country,city,street,houseNumber,zipCode}
     console.log(signUp)
     fetch("http://localhost:8080/user/signUp", {
       method: "POST",
@@ -36,125 +36,111 @@ import { Link } from "react-router-dom";
   
   return (
     <Layout>
-      <Container className="auth-container">
-        <Paper className="auth">
-          <div className="auth_header">
-            <h5>Create account</h5>
-          </div>
-          <div className="auth_form">
-            <form>
+     <fieldset>
+     
+        <legend>Konto:</legend>
+        <center>
+        <h2><label>Nazwa użytkownika</label></h2>
               <TextField
                 value={username}
                 onChange={(e) => setusername(e.target.value)}
-                label="Podaj nazwę użytkownika"
-              />
-            </form>
-            <form>
+                label="Podaj nazwę użytkownika" variant="outlined"
+              /><br></br>
+            <h2><label>Hasło</label></h2>
               <TextField
                 value={password}
                 onChange={(e) => setpassword(e.target.value)}
-                label="Podaj hasło"
-              />
-            </form>
-            <form>
+                label="Podaj hasło" variant="outlined" input type="password"
+              /><br></br>
+           <h2><label>numer telefonu</label></h2>
               <TextField
                 value={phoneNumber}
                 onChange={(e) => setphoneNumber(e.target.value)}
-                label="Podaj numer telefonu"
-              />
-            </form>
-            <form>
+                label="Podaj numer telefonu" variant="outlined"
+              /><br></br>
+           <h2><label>E-mail</label></h2>
               <TextField
-                value={mail}
-                onChange={(e) => setmail(e.target.value)}
-                label="Podaj mail"
-              />
-            </form>
-            <form>
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
+                label="Podaj mail" variant="outlined"
+              /><br></br>
+           <h2><label>PESEL</label></h2>
               <TextField
                 value={pesel}
                 onChange={(e) => setpesel(e.target.value)}
-                label="Podaj numer PESEL"
-              />
-            </form>
-            <form>
+                label="Podaj numer PESEL" variant="outlined"
+              /><br></br>
+           <h2><label>Imię</label></h2>
               <TextField
                 value={name}
                 onChange={(e) => setname(e.target.value)}
-                label="Podaj imię"
-              />
-            </form>
-            <form>
+                label="Podaj imię" variant="outlined"
+              /><br></br>
+           <h2><label>Drugie imię</label></h2>
               <TextField
                 value={middleName}
                 onChange={(e) => setmiddleName(e.target.value)}
-                label="Podaj drugie imię (opcjonalne)"
-              />
-            </form>
-            <form>
+                label="Podaj drugie imię (opcjonalne)" variant="outlined"
+              /><br></br>
+           <h2><label>Nazwisko</label></h2>
               <TextField
                 value={surname}
                 onChange={(e) => setsurname(e.target.value)}
-                label="Podaj nazwisko"
-              />
-            </form>
-            <form>
+                label="Podaj nazwisko" variant="outlined"
+              /><br></br>
+            <h2><label>Konto Bankowe</label></h2>
               <TextField
                 value={bankAccount}
                 onChange={(e) => setbankAccount(e.target.value)}
-                label="Podaj numer konta bankowego"
-              />
-            </form>
-            <form>
+                label="Podaj numer konta bankowego" variant="outlined"
+              /><br></br>
+            <h2><label>Kraj</label></h2>
               <TextField
                 value={country}
                 onChange={(e) => setcountry(e.target.value)}
-                label="Podaj kraj"
-              />
-            </form>
-            <form>
+                label="Podaj kraj" variant="outlined"
+              /><br></br>
+            <h2><label>Miasto</label></h2>
               <TextField
                 value={city}
                 onChange={(e) => setcity(e.target.value)}
-                label="Podaj miasto"
-              />
-            </form>
-            <form>
+                label="Podaj miasto" variant="outlined"
+              /><br></br>
+           <h2><label>Ulica</label></h2>
               <TextField
                 value={street}
                 onChange={(e) => setstreet(e.target.value)}
-                label="Podaj ulicę"
-              />
-            </form>
-            <form>
+                label="Podaj ulicę" variant="outlined"
+              /><br></br>
+            <h2><label>Numer domu</label></h2>
               <TextField
                 value={houseNumber}
                 onChange={(e) => sethouseNumber(e.target.value)}
-                label="Podaj numer domu"
-              />
-            </form>
-            <form>
+                label="Podaj numer domu" variant="outlined"
+              /><br></br>
+            <h2><label>Kod pocztowy</label></h2>
               <TextField
                 value={zipCode}
                 onChange={(e) => setzipCode(e.target.value)}
-                label="Podaj kod pocztowy"
-              />
-            </form>
+                label="Podaj kod pocztowy" variant="outlined"
+              /><br></br>
+          
             
-            
+            <br></br>
             <Button variant="contained" color="secondary" onClick={handleClick}>Zarejestruj</Button>
-          </div>
+            </center>
+            </fieldset>
           <div className="auth_bottom">
+            <center>
             <p>
-              Posiadasz już konto? 
+              Posiadasz już konto? <br></br>
               <span>
                 <Link to="../Login">Zaloguj się </Link>
               </span>
             </p>
+            </center>
           </div>
-        </Paper>
-      </Container>
-    </Layout>
+      </Layout>
   );
 }
 
