@@ -47,7 +47,15 @@ function Navbar() {
                 Dane Osobowe
               </Link>
               
-            </li>  
+            </li> 
+            <li className='nav-item'>
+            
+            <Link to='/ChangePassword' className='nav-links' onClick={closeMobileMenu}>
+                Zmiana hasła
+              </Link>
+              
+            </li> 
+            
             <li>
               <Link 
               to='/Login'

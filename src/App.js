@@ -5,6 +5,7 @@ import LoginPage from "./components/Pages/LoginPage";
 import ResetPasswordPage from "./components/Pages/ResetPasswordPage";
 import HomePage from "./components/Pages/HomePage";
 import EditPersonalDataPage from "./components/Pages/EditPersonalDataPage";
+import ChangePasswordPage from "./components/Pages/ChangePasswordPage";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/ResetPassword" element={<ResetPasswordPage />} />
           <Route path="/EditPersonalData" element={<EditPersonalDataPage/>}/>
+          <Route path="/ChangePassword" element={<ChangePasswordPage/>}/>
         </Routes>
       </BrowserRouter>
       </nav>
