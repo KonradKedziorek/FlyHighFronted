@@ -2,13 +2,18 @@ import React from "react"
 import Layout from "./Pages/Layout"
 import { useState } from "react"
 import {  TextField, Button } from "@material-ui/core"
+import { useAlert } from 'react-alert'
 
 
  function ChangePassword  ()  {
     const [newPassword, setNewPassword ]=useState("");
     const [confirmNewPassword, setConfirmNewPassword ]=useState("");
     
-    
+    function showAlert(){
+          if(newPassword!==confirmNewPassword){
+            alert("Hasła muszą być takie same!");
+          }
+     }
 
     return (
         <Layout>
@@ -28,8 +33,9 @@ import {  TextField, Button } from "@material-ui/core"
                     label="Hasło" variant="outlined" input type="password"
                   /><br>
                   </br>
+                 
                 
-               <br></br> <Button variant="contained" color="secondary">Zmień hasło</Button>
+               <br></br> <Button variant="contained" color="secondary" onClick={showAlert} >Zmień hasło</Button>
              </fieldset></center><br></br>
         </Layout>
     );
