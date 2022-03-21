@@ -14,6 +14,19 @@ import { useAlert } from 'react-alert'
             alert("Hasła muszą być takie same!");
           }
      }
+     function handleClick(e){
+      e.preventDefault()
+      const changePassword = {password}
+      console.log(changePassword)
+      fetch("http://localhost:8080/user/changePassword", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(changePassword)
+      }).then(() => {
+        console.log("Password has been changed")
+      })
+    }
+     
 
     return (
         <Layout>
@@ -35,7 +48,7 @@ import { useAlert } from 'react-alert'
                   </br>
                  
                 
-               <br></br> <Button variant="contained" color="secondary" onClick={showAlert} >Zmień hasło</Button>
+               <br></br> <Button variant="contained" color="secondary" onClick={()=>{showAlert;handleClick }} >Zmień hasło</Button>
              </fieldset></center><br></br>
         </Layout>
     );
