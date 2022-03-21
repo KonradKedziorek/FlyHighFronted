@@ -18,11 +18,16 @@ function Login() {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(login)
-    }).then(() => {
-      console.log("Logged in")
+    }).then((response) => response.json())
+    .then(json => {
+      window.localStorage.setItem("TOKEN_KEY", json.jwtToken);
+      let item = localStorage.getItem("TOKEN_KEY");
+      console.log(item);
+    })
+    .catch(error => {
+      console.log("Error")
     })
   }
-   
 
   return (
     <Layout>
