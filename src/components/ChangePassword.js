@@ -9,24 +9,25 @@ import { useAlert } from 'react-alert'
     const [newPassword, setNewPassword ]=useState("");
     const [confirmNewPassword, setConfirmNewPassword ]=useState("");
     
-    function showAlert(){
+    function showAlert(e){
+      e.preventDefault()
           if(newPassword!==confirmNewPassword){
             alert("Hasła muszą być takie same!");
-          }
+          }else handleClick();
      }
-     function handleClick(e){
-      e.preventDefault()
-      const changePassword = {password}
-      console.log(changePassword)
-      fetch("http://localhost:8080/user/changePassword", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(changePassword)
+
+     function handleClick(){
+      const resetPasswordRequest = {newPassword, confirmNewPassword}
+      console.log(resetPasswordRequest)
+      fetch("http://localhost:8080/newPassword", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(resetPasswordRequest),
+          params: 'token'
       }).then(() => {
-        console.log("Password has been changed")
+        console.log("Password changed")
       })
     }
-     
 
     return (
         <Layout>
@@ -48,7 +49,7 @@ import { useAlert } from 'react-alert'
                   </br>
                  
                 
-               <br></br> <Button variant="contained" color="secondary" onClick={()=>{showAlert;handleClick }} >Zmień hasło</Button>
+               <br></br> <Button variant="contained" color="secondary" onClick={showAlert} >Zmień hasło</Button>
              </fieldset></center><br></br>
         </Layout>
     );
