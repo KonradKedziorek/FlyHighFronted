@@ -21,8 +21,7 @@ import { Link } from "react-router-dom";
   const [houseNumber, sethouseNumber] = useState("");
   const [zipCode, setzipCode] = useState("");
 
-  function handleClick(e){
-    e.preventDefault()
+  function handleClick(){
     const signUp = {username,password,phoneNumber,email,pesel,name,middleName,surname,bankAccount,country,city,street,houseNumber,zipCode}
     console.log(signUp)
     fetch("http://localhost:8080/user/signUp", {
@@ -32,6 +31,24 @@ import { Link } from "react-router-dom";
     }).then(() => {
       console.log("New user added")
     })
+  }
+
+  function sendMail(){
+    const userEmail = {email}
+    console.log(email)
+    fetch("http://localhost:8080/signUp", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(userEmail)
+    }).then(() => {
+      console.log("Mail sent")
+    })
+  }
+
+  function registration(e){
+    e.preventDefault()
+    handleClick()
+    sendMail()
   }
   
   return (
@@ -127,7 +144,7 @@ import { Link } from "react-router-dom";
           
             
             <br></br>
-            <Button variant="contained" color="secondary" onClick={handleClick}>Zarejestruj</Button>
+            <Button variant="contained" color="secondary" onClick={registration}>Zarejestruj</Button>
             </center>
             </fieldset>
           <div className="auth_bottom">
