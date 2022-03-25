@@ -6,30 +6,34 @@ import Layout from './Pages/Layout'
 
 
 const EditPersonalData = () => {
-    const [name, setname] = useState("");
-    const [middleName, setmiddleName] = useState("");
-    const [surname, setsurname] = useState("");
-    const [country, setcountry] = useState("");
-    const [city, setcity] = useState("");
-    const [street, setstreet] = useState("");
-    const [email, setemail] = useState("");
-    const [bankAccount, setbankAccount] = useState("");
-    const [phoneNumber, setphoneNumber] = useState("");
-    const [houseNumber, sethouseNumber] = useState("");
-    const [zipCode, setzipCode] = useState("");
-   
-    function handleClick(e){
-        e.preventDefault()
-        const EditPD = {name,middleName,surname,country,city,street,email,phoneNumber,houseNumber,zipCode,bankAccount}
-        console.log(EditPD)
-        fetch("http://localhost:3004/EditPersonalData", {
-          method: "POST",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify(EditPD)
-        }).then(() => {
-          console.log("User Data change")
-        })
-      }
+  let personalData = JSON.parse(localStorage.getItem("personal_Data"));
+
+  const [name, setname] = useState(personalData.name);
+  const [middleName, setmiddleName] = useState(personalData.middleName);
+  const [surname, setsurname] = useState(personalData.surname);
+  const [country, setcountry] = useState(personalData.country);
+  const [city, setcity] = useState(personalData.city);
+  const [street, setstreet] = useState(personalData.street);
+  const [email, setemail] = useState(personalData.email);
+  const [bankAccount, setbankAccount] = useState(personalData.bankAccount);
+  const [phoneNumber, setphoneNumber] = useState(personalData.phoneNumber);
+  const [houseNumber, sethouseNumber] = useState(personalData.houseNumber);
+  const [zipCode, setzipCode] = useState(personalData.zipCode);
+  console.log(name)
+
+  function handleClick(e){
+      e.preventDefault()
+      const EditPD = {name,middleName,surname,country,city,street,email,phoneNumber,houseNumber,zipCode,bankAccount}
+      let item = localStorage.getItem("TOKEN_KEY");
+      let token = "Bearer " + item;
+      fetch("http://localhost:8080/user/saveChangedData", {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Authorization": token, "Access-Control-Request-Method": "POST"},
+        body: JSON.stringify(EditPD)
+      }).then(() => {
+        console.log("User Data change")
+      })
+    }
 
     return (
         <Layout>
