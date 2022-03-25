@@ -16,7 +16,7 @@ import { useAlert } from 'react-alert'
      }
      function handleClick(e){
       e.preventDefault()
-      const changePassword = {password}
+      const changePassword = {newPassword}
       console.log(changePassword)
       fetch("http://localhost:8080/user/changePassword", {
         method: "POST",
@@ -48,7 +48,7 @@ import { useAlert } from 'react-alert'
                   </br>
                  
                 
-               <br></br> <Button variant="contained" color="secondary" onClick={()=>{showAlert;handleClick }} >Zmień hasło</Button>
+               <br></br> <Button variant="contained" color="secondary" onClick={showAlert } >Zmień hasło</Button>
              </fieldset></center><br></br>
         </Layout>
     );
