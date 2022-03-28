@@ -1,17 +1,17 @@
 import React from 'react';
 import '../../App.css';
-import SearchFly from '../SearchFly';
+import SearchFlight from '../SearchFlight';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 
-function SearchFlyPage() {
+function SearchFlightPage() {
   return (
     <>
     {<Navbar/>}
-      {<SearchFly />}
+      {<SearchFlight />}
       {<Footer />}
     </>
   );
 }
 
-export default SearchFlyPage;
+export default SearchFlightPage;

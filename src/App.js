@@ -6,7 +6,7 @@ import ResetPasswordPage from "./components/Pages/ResetPasswordPage";
 import HomePage from "./components/Pages/HomePage";
 import EditPersonalDataPage from "./components/Pages/EditPersonalDataPage";
 import ChangePasswordPage from "./components/Pages/ChangePasswordPage";
-import SearchFlyPage from "./components/Pages/SearchFlyPage";
+import SearchFlightPage from "./components/Pages/SearchFlightPage";
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
           <Route path="/ResetPassword" element={<ResetPasswordPage />} />
           <Route path="/EditPersonalData" element={<EditPersonalDataPage/>}/>
           <Route path="/ChangePassword" element={<ChangePasswordPage/>}/>
-          <Route path="/SearchFly" element={<SearchFlyPage/>}/>
+          <Route path="/SearchFlight" element={<SearchFlightPage/>}/>
         </Routes>
       </BrowserRouter>
       </nav>

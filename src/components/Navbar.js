@@ -55,6 +55,12 @@ function Navbar() {
               </Link>
               
             </li> 
+            <li className='nav-item'>
+            <Link to='/SearchFlight' className='nav-links' onClick={closeMobileMenu}>
+                Szukaj lotu
+              </Link>
+              
+            </li>
             
             <li>
               <Link 

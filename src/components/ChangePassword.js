@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "./Pages/Layout"
 import { useState } from "react"
 import {  TextField, Button } from "@material-ui/core"
-import { useAlert } from 'react-alert'
+
 
 
  function ChangePassword  ()  {
@@ -12,7 +12,7 @@ import { useAlert } from 'react-alert'
     function showAlert(){
           if(newPassword!==confirmNewPassword){
             alert("Hasła muszą być takie same!");
-          }
+          }else{handleClick()};
      }
      function handleClick(e){
       e.preventDefault()
