@@ -40,38 +40,17 @@ function Navbar() {
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                 Home
               </Link>
-            </li>
-            <li className='nav-item'>
-            
-            <Link to='/EditPersonalData' className='nav-links' onClick={closeMobileMenu}>
-                Dane Osobowe
-              </Link>
-              
             </li> 
             <li className='nav-item'>
-            
-            <Link to='/ChangePassword' className='nav-links' onClick={closeMobileMenu}>
-                Zmiana hasła
-              </Link>
-              
-            </li> 
-            <li className='nav-item'>
-            <Link to='/SearchFlight' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/SearchFlight' className='nav-links' onClick={closeMobileMenu}>
                 Szukaj lotu
               </Link>
-              
             </li>
-            
             <li>
-              <Link 
-              to='/Login'
-               className='nav-links-mobile'
-                onClick={closeMobileMenu}
-                >
-                    Zaloguj się
-                </Link>
+              <Link to='/Login' className='nav-links-mobile' onClick={closeMobileMenu} >
+                Zaloguj się
+              </Link>
             </li>  
-
           </ul>
           {button && <Button buttonStyle='btn--outline'>Zaloguj się</Button>}  
 
