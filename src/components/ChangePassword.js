@@ -7,23 +7,27 @@ import { useAlert } from 'react-alert'
 
  function ChangePassword  ()  {
     const [newPassword, setNewPassword ]=useState("");
-    const [confirmNewPassword, setConfirmNewPassword ]=useState("");
+    const [repeatedNewPassword, setRepeatedNewPassword ]=useState("");
     
     function showAlert(e){
       e.preventDefault()
-          if(newPassword!==confirmNewPassword){
+          if(newPassword!==repeatedNewPassword){
             alert("Hasła muszą być takie same!");
           }else handleClick();
      }
 
      function handleClick(){
-      const resetPasswordRequest = {newPassword, confirmNewPassword}
+      var currentUrl = window.location.href;
+      var startIndexToken = currentUrl.indexOf('token=') + 6;
+      var lastIndexToken = currentUrl.length;
+      var token = currentUrl.substring(startIndexToken, lastIndexToken)
+      console.log(token)
+      const resetPasswordRequest = {newPassword, repeatedNewPassword}
       console.log(resetPasswordRequest)
-      fetch("http://localhost:8080/newPassword", {
+      fetch("http://localhost:8080/newPassword?token=" + token, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(resetPasswordRequest),
-          params: 'token'
+          body: JSON.stringify(resetPasswordRequest)
       }).then(() => {
         console.log("Password changed")
       })
@@ -42,8 +46,8 @@ import { useAlert } from 'react-alert'
                   /><br></br>
                   <h2><label>Powtórz hasło</label></h2> 
                   <TextField
-                    value={confirmNewPassword}
-                    onChange={(e) => setConfirmNewPassword(e.target.value)}
+                    value={repeatedNewPassword}
+                    onChange={(e) => setRepeatedNewPassword(e.target.value)}
                     label="Hasło" variant="outlined" input type="password"
                   /><br>
                   </br>
