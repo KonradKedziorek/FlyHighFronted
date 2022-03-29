@@ -5,11 +5,8 @@ import Layout from './Pages/Layout'
 
 
 
-
-
 const ResetPassword = () => {
     const [email, setemail]=useState('')
-
     function handleClick(e){
         e.preventDefault()
         const userEmail = {email}
@@ -22,7 +19,6 @@ const ResetPassword = () => {
           console.log("Mail sent")
         })
       }
-
     return (
         <Layout>
             <fieldset>

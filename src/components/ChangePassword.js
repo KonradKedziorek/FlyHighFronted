@@ -29,9 +29,10 @@ import { useAlert } from 'react-alert'
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(resetPasswordRequest)
       }).then(() => {
-        console.log("Password changed")
+        console.log("Password has been changed")
       })
     }
+     
 
     return (
         <Layout>
@@ -59,4 +60,4 @@ import { useAlert } from 'react-alert'
     );
 }
 
-export default ChangePassword;
+export default ChangePassword();
