@@ -10,13 +10,13 @@ function Cards() {
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-1.jpeg'
+              src='images/img-1.jpg'
               text='Odwiedź piaszczyste plaże Hiszpani'
               label='Barcelona'
               path='/services'
             />
             <CardItem
-              src='images/img-2.jpeg'
+              src='images/img-2.jpg'
               text='Zwiedzaj starożytne zabytki Grecji'
               label='Ateny'
               path='/services'
@@ -24,19 +24,19 @@ function Cards() {
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-3.jpeg'
+              src='images/img-3.jpg'
               text='Poczuj się jak Napoleon Bonaparte'
               label='Paryż'
               path='/services'
             />
             <CardItem
-              src='images/img-4.jpeg'
+              src='images/img-4.jpg'
               text='Chcesz przeżyć przygodę życia?'
               label='Dołącz do nas'
               path='/SignUp'
             />
             <CardItem
-              src='images/img-5.jpeg'
+              src='images/img-5.jpg'
               text='Chcesz zobaczyć białe noce?'
               label='Sankt Petersburg'
               path='/services'
