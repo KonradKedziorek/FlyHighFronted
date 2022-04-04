@@ -3,14 +3,18 @@ import Layout from "./Pages/Layout";
 import { useState } from "react";
 import {  TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { authenticate, authFailure, authSuccess } from '../redux/authActions';
 
 
-function Login() {
+const Login=({loading,error,...props})=> {
  const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+
+    
   
 
   function handleClick(e){
+    props.authenticate();
     e.preventDefault()
     const login = {username,password}
     console.log(login)
@@ -78,6 +82,23 @@ function Login() {
     </Layout>
     
   );
+}
+
+const mapStateToProps=({auth})=>{
+  console.log("state ",auth)
+  return {
+      loading:auth.loading,
+      error:auth.error
+}}
+
+
+const mapDispatchToProps=(dispatch)=>{
+
+  return {
+      authenticate :()=> dispatch(authenticate()),
+      setUser:(data)=> dispatch(authSuccess(data)),
+      loginFailure:(message)=>dispatch(authFailure(message))
+  }
 }
 
 export default Login;

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { useDispatch } from 'react-redux';
+
+import {fetchUserData} from '../services/LoginServices';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -9,6 +12,19 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  //const dispatch=useDispatch();
+  const [loading,setLoading]=useState(false);
+  const [data,setData]=useState({});
+  React.useEffect(()=>{
+    fetchUserData().then((response)=>{
+        setData(response.data);
+    }).catch((e)=>{
+        localStorage.clear();
+        
+    })
+},[])
+  
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -50,9 +66,7 @@ function Navbar() {
             </li> 
             <li className='nav-item'>
             
-            <Link to='/ChangePassword' className='nav-links' onClick={closeMobileMenu}>
-                Zmiana hasła
-              </Link>
+            <p>Hello {data && `${data.name} ${data.surename}`}</p>
               
             </li> 
             
