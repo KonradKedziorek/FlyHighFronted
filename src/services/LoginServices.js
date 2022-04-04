@@ -17,7 +17,7 @@ export const userLogin=(authRequest)=>{
 export const fetchUserData=(authRequest)=>{
     return axios({
         method:'GET',
-        url:`${process.env.hostUrl||'http://localhost:8080'}/login`,
+        url:`${process.env.hostUrl||'http://localhost:8080'}/user/changePassword`,
         headers:{
             'Authorization':'Bearer '+getToken()
         }
